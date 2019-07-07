@@ -5,11 +5,13 @@
  * @var \yii\mail\BaseMessage $content
  */
 
+use yii\helpers\Html;
+
 ?>
 
 <?php $this->beginPage() ?>
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <?= Html::tag(
+    <?= Html::beginTag(
         'html',
         [
             'xmlns' => 'http://www.w3.org/1999/xhtml',
@@ -58,7 +60,6 @@
                                     <?= Html::beginTag('td', ['class' => 'mailer-html-table-content']) ?>
                                         <?= Html::beginTag('td', ['class' => 'mailer-html-table-content-center']) ?>
                                             <?= Html::beginTag('p', ['class' => 'mailer-html-p-content']) ?>
-                                            <p ">
                                                 © <?= \Yii::$app->name ?> <?= date('Y') ?>.
                                             <?= Html::endTag('p') ?>
                                     <?= Html::endTag('td') ?>

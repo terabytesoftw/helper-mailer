@@ -1,6 +1,6 @@
 <?php
 
-namespace terabytesoft\app\user\mailer;
+namespace terabytesoft\mailer\user;
 
 use terabytesoft\app\user\models\TokenModel;
 use terabytesoft\app\user\models\UserModel;
@@ -17,7 +17,7 @@ class Mailer extends Component
 
     public $mailerComponent;
     public $sender;
-    public $viewPath = '@terabytesoft/app/user/views/mail';
+    public $viewPath = '@terabytesoft/mailer/user/views';
 
     protected $confirmationSubject;
     protected $newPasswordSubject;

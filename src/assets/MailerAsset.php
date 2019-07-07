@@ -4,7 +4,7 @@
  * MailAsset
  **/
 
-namespace terabytesoft\mailer\user;
+namespace terabytesoft\mailer\user\assets;
 
 use yii\web\AssetBundle;
 
