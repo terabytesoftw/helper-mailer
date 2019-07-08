@@ -23,7 +23,7 @@ use yii\helpers\Html;
             <?= Html::tag('meta', '', ['name' => 'viewport', 'content' => 'width=device-width']) ?>
             <?= Html::tag(
                 'meta',
-                ['http-equiv' => 'Content-Type', 'content' => 'text/html', 'charset' => \Yii::$app->charset]
+                ['http-equiv' => 'Content-Type', 'content' => 'text/html; charset=' . \Yii::$app->charset]
             ) ?>
             <?php $this->head() ?>
         <?= Html::endTag('head') ?>
