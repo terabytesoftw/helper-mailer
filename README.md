@@ -2,7 +2,7 @@
     <a href="https://github.com/terabytesoftw/mailer-user" target="_blank">
         <img src="https://lh3.googleusercontent.com/D9TFw1F6ddPuheDc_tpNptTdvTg-FNNpjLSBN14X6Sc-3JDiOxfE67rEh4OZfygonx1tKei2b2DEOHDLjF6T3xl8e-rkEEPZeGqLTWcS_v2cBRlyo0vcZLDHG5ivSDGIWCsenbol=w2400" height="50px;">
     </a>
-    <h1 align="center">Component Mailer User Core</h1>
+    <h1 align="center">Component Mailer User Core.</h1>
 </p>
 
 <p align="center">
@@ -49,6 +49,7 @@ vendor/             contains dependent 3rd-party packages
 
 - The minimum requirement by this project template that your Web server supports:
     - PHP 7.2 or higher.
+    - [Composer Config Plugin](https://github.com/hiqdev/composer-config-plugin)
 
 ### **GENERATE MESSAGES TRANSLATION:**
 
