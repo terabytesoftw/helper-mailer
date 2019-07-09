@@ -49,6 +49,7 @@ $config = [
             ],
         ],
         'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => true,
         ],
         'request' => [
@@ -58,12 +59,8 @@ $config = [
     ],
     'modules' => [
         'user' => [
-            'class' => terabytesoft\app\user\AppUser::class,
+            'class' => \terabytesoft\mailer\user\tests\_data\AppUser::class,
             'accountGeneratingPassword' => true,
-            'modelMap' => [
-                'TokenModel'   => \terabytesoft\app\user\models\TokenModel::class,
-                'UserModel'    => \terabytesoft\app\user\models\UserModel::class,
-            ],
         ],
     ],
     'params' => $params,

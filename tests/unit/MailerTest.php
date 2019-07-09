@@ -3,8 +3,9 @@
 namespace terabytesoft\mailer\user\tests;
 
 use terabytesoft\mailer\user\Mailer;
-use terabytesoft\app\user\models\TokenModel;
-use terabytesoft\app\user\models\UserModel;
+use terabytesoft\mailer\user\tests\_data\AppUser;
+use terabytesoft\mailer\user\tests\_data\models\TokenModel;
+use terabytesoft\mailer\user\tests\_data\models\UserModel;
 use yii\mail\MessageInterface;
 
 /**
@@ -18,6 +19,11 @@ class MailerTest extends \Codeception\Test\Unit
      * @var Mailer $mailer
      */
     private $mailer;
+
+    /**
+     * @var object $module
+     */
+    private $module;
 
     /**
      * @var \UnitTester
@@ -40,6 +46,7 @@ class MailerTest extends \Codeception\Test\Unit
     public function _before(): void
     {
         $this->mailer = new Mailer();
+        $this->module = \Yii::$app->getModule('user');
         $this->tokenModel = new TokenModel();
         $this->userModel = new UserModel();
     }
@@ -50,6 +57,7 @@ class MailerTest extends \Codeception\Test\Unit
     public function _after(): void
     {
         unset($this->mailer);
+        unset($this->module);
         unset($this->tokenModel);
         unset($this->userModel);
     }
@@ -107,8 +115,8 @@ class MailerTest extends \Codeception\Test\Unit
      */
     public function testMailerSendReconfirmationMessageNewMailTokenTypeConfirmNewMail(): void
     {
-        $this->userModel->unconfirmed_email = 'mailer@mailer-user.com';
         $this->tokenModel->type = TokenModel::TYPE_CONFIRM_NEW_EMAIL;
+        $this->userModel->unconfirmed_email = 'mailer@mailer-user.com';
 
         $this->mailer->sendReconfirmationMessage($this->userModel, $this->tokenModel);
 
@@ -129,8 +137,8 @@ class MailerTest extends \Codeception\Test\Unit
      */
     public function testMailerSendReconfirmationMessageNewMailTokenTypeConfirmOldMail(): void
     {
-        $this->userModel->email = 'mailer@mailer-user.com';
         $this->tokenModel->type = TokenModel::TYPE_CONFIRM_OLD_EMAIL;
+        $this->userModel->email = 'mailer@mailer-user.com';
 
         $this->mailer->sendReconfirmationMessage($this->userModel, $this->tokenModel);
 
@@ -151,8 +159,8 @@ class MailerTest extends \Codeception\Test\Unit
      */
     public function testMailerSendRecoveryMessage(): void
     {
-        $this->userModel->email = 'mailer@mailer-user.com';
         $this->tokenModel->type = TokenModel::TYPE_RECOVERY;
+        $this->userModel->email = 'mailer@mailer-user.com';
 
         $this->mailer->sendRecoveryMessage($this->userModel, $this->tokenModel);
 
@@ -174,12 +182,13 @@ class MailerTest extends \Codeception\Test\Unit
     public function testMailerSendWelcomeMessage(): void
     {
         $this->tokenModel->type = TokenModel::TYPE_CONFIRMATION;
-        $this->userModel->password = 'testGeneratedPassword';
         $this->userModel->email = 'mailer@mailer-user.com';
+        $this->userModel->password = 'testGeneratedPassword';
 
         $this->mailer->sendWelcomeMessage(
             $this->userModel,
-            isset($this->tokenModel) ? $this->tokenModel : null
+            isset($this->tokenModel) ? $this->tokenModel : null,
+            $this->module,
         );
 
         $this->tester->seeEmailIsSent();

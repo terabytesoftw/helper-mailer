@@ -2,7 +2,6 @@
 
 namespace terabytesoft\mailer\user;
 
-use terabytesoft\app\user\traits\ModuleTrait;
 use yii\base\Component;
 use yii\db\ActiveRecord;
 
@@ -12,8 +11,6 @@ use yii\db\ActiveRecord;
  **/
 class Mailer extends Component
 {
-    use ModuleTrait;
-
     public $mailerComponent;
     public $sender;
     public $viewPath = '@terabytesoft/mailer/user/views';
@@ -34,7 +31,7 @@ class Mailer extends Component
             $this->setWelcomeSubject(\Yii::t(
                 'mailer.user',
                 'Welcome to {0}',
-                [$this->app->name]
+                [\Yii::$app->name]
             ));
         }
 
@@ -58,7 +55,7 @@ class Mailer extends Component
             $this->setNewPasswordSubject(\Yii::t(
                 'mailer.user',
                 'Your password on {0} has been changed',
-                [$this->app->name]
+                [\Yii::$app->name]
             ));
         }
 
@@ -82,7 +79,7 @@ class Mailer extends Component
             $this->setConfirmationSubject(\Yii::t(
                 'mailer.user',
                 'Confirm account on {0}',
-                [$this->app->name]
+                [\Yii::$app->name]
             ));
         }
 
@@ -106,7 +103,7 @@ class Mailer extends Component
             $this->setReconfirmationSubject(\Yii::t(
                 'mailer.user',
                 'Confirm email change on {0}',
-                [$this->app->name]
+                [\Yii::$app->name]
             ));
         }
 
@@ -130,7 +127,7 @@ class Mailer extends Component
             $this->setRecoverySubject(\Yii::t(
                 'mailer.user',
                 'Complete password reset on {0}',
-                [$this->app->name]
+                [\Yii::$app->name]
             ));
         }
 
@@ -150,13 +147,17 @@ class Mailer extends Component
      *
      * sends an email to a user after registration
      **/
-    public function sendWelcomeMessage(ActiveRecord $user, ActiveRecord $token = null, $showPassword = false): bool
-    {
+    public function sendWelcomeMessage(
+        ActiveRecord $user,
+        ActiveRecord $token = null,
+        object $module,
+        $showPassword = false
+    ): bool {
         return $this->sendMessage(
             $user->email,
             $this->getWelcomeSubject(),
             'welcome',
-            ['user' => $user, 'token' => $token, 'module' => $this->module, 'showPassword' => $showPassword]
+            ['user' => $user, 'token' => $token, 'showPassword' => $showPassword, 'module' => $module]
         );
     }
 
@@ -171,7 +172,7 @@ class Mailer extends Component
             $user->email,
             $this->getNewPasswordSubject(),
             'new_password',
-            ['user' => $user, 'password' => $password, 'module' => $this->module]
+            ['user' => $user, 'password' => $password]
         );
     }
 
@@ -186,7 +187,7 @@ class Mailer extends Component
             $user->email,
             $this->getConfirmationSubject(),
             'confirmation',
-            ['user' => $user, 'token' => $token, 'module' => $this->module]
+            ['user' => $user, 'token' => $token]
         );
     }
 
@@ -207,7 +208,7 @@ class Mailer extends Component
             $email,
             $this->getReconfirmationSubject(),
             'reconfirmation',
-            ['user' => $user, 'token' => $token, 'module' => $this->module]
+            ['user' => $user, 'token' => $token]
         );
     }
 
@@ -218,12 +219,12 @@ class Mailer extends Component
      **/
     public function sendRecoveryMessage(ActiveRecord $user, ActiveRecord $token): bool
     {
-        $this->app->session->set('sendRecoveryMessage', true);
+        \Yii::$app->session->set('sendRecoveryMessage', true);
         return $this->sendMessage(
             $user->email,
             $this->getRecoverySubject(),
             'recovery',
-            ['user' => $user, 'token' => $token, 'module' => $this->module]
+            ['user' => $user, 'token' => $token]
         );
     }
 
@@ -232,14 +233,14 @@ class Mailer extends Component
      **/
     protected function sendMessage(string $to, string $subject, string $view, array $params = []): bool
     {
-        $mailer = $this->mailerComponent === null ? $this->app->mailer : $this->app->get($this->mailerComponent);
+        $mailer = $this->mailerComponent === null ? \Yii::$app->mailer : \Yii::$app->get($this->mailerComponent);
 
         $mailer->viewPath = $this->viewPath;
 
         return $mailer->compose(['html' => $view, 'text' => 'text/' . $view], $params)
             ->setTo($to)
             ->setFrom(
-                [$this->app->params['mailer.user.email.sender'] => $this->app->params['mailer.user.email.sender.name']]
+                [\Yii::$app->params['mailer.user.email.sender'] => \Yii::$app->params['mailer.user.email.sender.name']]
             )
             ->setSubject($subject)
             ->send();
