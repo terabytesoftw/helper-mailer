@@ -150,14 +150,18 @@ class Mailer extends Component
     public function sendWelcomeMessage(
         ActiveRecord $user,
         ActiveRecord $token = null,
-        object $module,
+        bool $accountGeneratingPassword,
         $showPassword = false
     ): bool {
         return $this->sendMessage(
             $user->email,
             $this->getWelcomeSubject(),
             'welcome',
-            ['user' => $user, 'token' => $token, 'showPassword' => $showPassword, 'module' => $module]
+            [
+                'user' => $user,
+                'token' => $token,
+                'showPassword' => $showPassword,
+                'accountGeneratingPassword' => $accountGeneratingPassword]
         );
     }
 

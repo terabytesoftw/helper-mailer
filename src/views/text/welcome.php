@@ -9,7 +9,7 @@
 
 <?= \Yii::t('mailer.user', 'Your account on {0} has been created', [\Yii::$app->name]) ?> .
 
-<?php if ($module->accountGeneratingPassword) : ?>
+<?php if ($showPassword || $accountGeneratingPassword) : ?>
     <?= \Yii::t('mailer.user', 'We have generated a password for you') ?>:
     <?= $user->password ?>
 <?php endif ?>

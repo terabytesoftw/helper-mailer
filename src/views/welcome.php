@@ -19,7 +19,7 @@ MailerAsset::register($this);
 
 <?= Html::beginTag('p', ['class' => 'mailer-welcome']) ?>
     <?= \Yii::t('mailer.user', 'Your account on {0} has been created', [\Yii::$app->name]) ?>
-    <?php if ($showPassword || $module->accountGeneratingPassword) : ?>
+    <?php if ($showPassword || $accountGeneratingPassword) : ?>
         <?= \Yii::t('mailer.user', 'We have generated a password for you') ?>: <strong><?= $user->password ?></strong>
     <?php endif ?>
 <?= Html::endTag('p') ?>
