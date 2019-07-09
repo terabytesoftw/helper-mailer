@@ -6,8 +6,3 @@
 # Remove this suite if you don't use frameworks
 
 actor: FunctionalTester
-modules:
-    enabled:
-        # add a framework module here
-        - \terabytesoft\mailer\user\tests\Helper\Functional
-    step_decorators: ~

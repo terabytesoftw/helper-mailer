@@ -19,9 +19,7 @@ install:
   - travis_retry composer update --prefer-dist --no-interaction
 
 script:
-  - |
-    vendor/bin/codecept build
-    vendor/bin/codecept run unit --coverage-xml
+  - vendor/bin/codecept run --coverage-xml
 
 after_script:
   - |
