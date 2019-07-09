@@ -89,10 +89,7 @@ class MailerTest extends \Codeception\Test\Unit
         $this->tokenModel->type = TokenModel::TYPE_CONFIRMATION;
         $this->userModel->email = 'mailer@mailer-user.com';
 
-        $this->mailer->sendConfirmationMessage(
-            $this->userModel,
-            $this->tokenModel,
-        );
+        $this->mailer->sendConfirmationMessage($this->userModel, $this->tokenModel);
 
         $this->tester->seeEmailIsSent();
 

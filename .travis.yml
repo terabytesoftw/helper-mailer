@@ -4,8 +4,6 @@ php:
   - '7.2'
   - '7.3'
 
-dist: trusty
-
 # faster builds on new travis setup not using sudo
 sudo: false
 
@@ -19,11 +17,13 @@ install:
   - travis_retry composer update --prefer-dist --no-interaction
 
 script:
-  - vendor/bin/codecept run --coverage-xml
+  - |
+    vendor/bin/codecept build
+    vendor/bin/codecept run --coverage-xml
 
 after_script:
   - |
     if [ $TRAVIS_PHP_VERSION = '7.3' ]; then
-      travis_retry wget https://scrutinizer-ci.com/ocular.phar
-      php ocular.phar code-coverage:upload --format=php-clover tests/_output/coverage.xml
+        travis_retry wget https://scrutinizer-ci.com/ocular.phar
+        php ocular.phar code-coverage:upload --format=php-clover tests/_output/coverage.xml
     fi
