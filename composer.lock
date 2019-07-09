@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf7792e5a4b44683aafc12135cf44b49",
+    "content-hash": "632a41e1c16e3d42691c0ee7360b2125",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -756,46 +756,6 @@
             "time": "2019-02-27T12:58:57+00:00"
         },
         {
-            "name": "codeception/specify",
-            "version": "0.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codeception/Specify.git",
-                "reference": "21b586f503ca444aa519dd9cafb32f113a05f286"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Specify/zipball/21b586f503ca444aa519dd9cafb32f113a05f286",
-                "reference": "21b586f503ca444aa519dd9cafb32f113a05f286",
-                "shasum": ""
-            },
-            "require": {
-                "myclabs/deep-copy": "~1.1",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Codeception\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Bodnarchuk",
-                    "email": "davert.php@mailican.com"
-                }
-            ],
-            "description": "BDD code blocks for PHPUnit and Codeception",
-            "time": "2016-10-21T09:42:00+00:00"
-        },
-        {
             "name": "codeception/stub",
             "version": "2.1.0",
             "source": {
@@ -824,46 +784,6 @@
             ],
             "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
             "time": "2019-03-02T15:35:10+00:00"
-        },
-        {
-            "name": "codeception/verify",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codeception/Verify.git",
-                "reference": "f45b39025b3f5cfd9a9d8fb992432885ff5380c1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Verify/zipball/f45b39025b3f5cfd9a9d8fb992432885ff5380c1",
-                "reference": "f45b39025b3f5cfd9a9d8fb992432885ff5380c1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 7.0",
-                "phpunit/phpunit": "> 6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/Codeception/function.php"
-                ],
-                "psr-4": {
-                    "Codeception\\": "src\\Codeception"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Bodnarchuk",
-                    "email": "davert@codeception.com"
-                }
-            ],
-            "description": "BDD assertion library for PHPUnit",
-            "time": "2017-11-12T01:51:59+00:00"
         },
         {
             "name": "dms/phpunit-arraysubset-asserts",
@@ -961,6 +881,123 @@
                 "instantiate"
             ],
             "time": "2019-03-17T17:37:11+00:00"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "https://www.doctrine-project.org/projects/lexer.html",
+            "keywords": [
+                "annotations",
+                "docblock",
+                "lexer",
+                "parser",
+                "php"
+            ],
+            "time": "2019-06-08T11:03:04+00:00"
+        },
+        {
+            "name": "egulias/email-validator",
+            "version": "2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/EmailValidator.git",
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "^1.0.1",
+                "php": ">= 5.5"
+            },
+            "require-dev": {
+                "dominicsayers/isemail": "dev-master",
+                "phpunit/phpunit": "^4.8.35||^5.7||^6.0",
+                "satooshi/php-coveralls": "^1.0.1"
+            },
+            "suggest": {
+                "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Egulias\\EmailValidator\\": "EmailValidator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gulias Davis"
+                }
+            ],
+            "description": "A library for validating emails against several RFCs",
+            "homepage": "https://github.com/egulias/EmailValidator",
+            "keywords": [
+                "email",
+                "emailvalidation",
+                "emailvalidator",
+                "validation",
+                "validator"
+            ],
+            "time": "2019-06-23T10:14:27+00:00"
         },
         {
             "name": "facebook/webdriver",
@@ -2013,6 +2050,34 @@
             "time": "2019-04-07T13:18:21+00:00"
         },
         {
+            "name": "npm-asset/bootstrap",
+            "version": "4.3.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-4.3.1.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/fortawesome--fontawesome-free",
+            "version": "5.10.0-patch11",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.10.0-11.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "npm-asset",
+            "license": [
+                "(CC-BY-4.0 AND OFL-1.1 AND MIT)"
+            ]
+        },
+        {
             "name": "phar-io/manifest",
             "version": "1.0.3",
             "source": {
@@ -2369,16 +2434,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.5",
+            "version": "7.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "aed67b57d459dcab93e84a5c9703d3deb5025dff"
+                "reference": "d471d0d2b529a67c6a722dd446c4ec90881ac315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/aed67b57d459dcab93e84a5c9703d3deb5025dff",
-                "reference": "aed67b57d459dcab93e84a5c9703d3deb5025dff",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d471d0d2b529a67c6a722dd446c4ec90881ac315",
+                "reference": "d471d0d2b529a67c6a722dd446c4ec90881ac315",
                 "shasum": ""
             },
             "require": {
@@ -2387,17 +2452,17 @@
                 "php": "^7.2",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^3.0.1",
+                "phpunit/php-token-stream": "^3.0.2",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
-                "sebastian/environment": "^4.1",
+                "sebastian/environment": "^4.2.2",
                 "sebastian/version": "^2.0.1",
-                "theseer/tokenizer": "^1.1"
+                "theseer/tokenizer": "^1.1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0"
+                "phpunit/phpunit": "^8.2.2"
             },
             "suggest": {
-                "ext-xdebug": "^2.6.1"
+                "ext-xdebug": "^2.7.2"
             },
             "type": "library",
             "extra": {
@@ -2428,7 +2493,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-06-06T12:28:18+00:00"
+            "time": "2019-07-08T05:29:42+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2572,16 +2637,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18"
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c99e3be9d3e85f60646f152f9002d46ed7770d18",
-                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
                 "shasum": ""
             },
             "require": {
@@ -2617,7 +2682,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2018-10-30T05:52:18+00:00"
+            "time": "2019-07-08T05:24:54+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -3555,6 +3620,68 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v6.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
+                "reference": "5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
+                "shasum": ""
+            },
+            "require": {
+                "egulias/email-validator": "~2.0",
+                "php": ">=7.0.0",
+                "symfony/polyfill-iconv": "^1.0",
+                "symfony/polyfill-intl-idn": "^1.10",
+                "symfony/polyfill-mbstring": "^1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
+            },
+            "suggest": {
+                "ext-intl": "Needed to support internationalized email addresses",
+                "true/punycode": "Needed to support internationalized email addresses, if ext-intl is not installed"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/swift_required.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Corbyn"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Swiftmailer, free feature-rich PHP mailer",
+            "homepage": "https://swiftmailer.symfony.com",
+            "keywords": [
+                "email",
+                "mail",
+                "mailer"
+            ],
+            "time": "2019-04-21T09:21:45+00:00"
+        },
+        {
             "name": "symfony/browser-kit",
             "version": "v4.3.2",
             "source": {
@@ -4038,6 +4165,127 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
+            "name": "symfony/polyfill-iconv",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-iconv.git",
+                "reference": "f037ea22acfaee983e271dd9c3b8bb4150bd8ad7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/f037ea22acfaee983e271dd9c3b8bb4150bd8ad7",
+                "reference": "f037ea22acfaee983e271dd9c3b8bb4150bd8ad7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-iconv": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Iconv\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Iconv extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "iconv",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-idn",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-idn.git",
+                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/c766e95bec706cdd89903b1eda8afab7d7a6b7af",
+                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/polyfill-mbstring": "^1.3",
+                "symfony/polyfill-php72": "^1.9"
+            },
+            "suggest": {
+                "ext-intl": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Laurent Bassin",
+                    "email": "laurent@bassin.info"
+                }
+            ],
+            "description": "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "idn",
+                "intl",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-03-04T13:44:35+00:00"
+        },
+        {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.11.0",
             "source": {
@@ -4090,6 +4338,61 @@
             "keywords": [
                 "compatibility",
                 "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php72",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php72.git",
+                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/ab50dcf166d5f577978419edd37aa2bb8eabce0c",
+                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
                 "polyfill",
                 "portable",
                 "shim"
@@ -4321,6 +4624,327 @@
             "time": "2019-04-06T14:04:46+00:00"
         },
         {
+            "name": "terabytesoftw/app-user",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "D:/git-local/terabytesoftw/app-user",
+                "reference": "2661bcac9d97dbd6753dc59fb8aa43a0a12b746f",
+                "shasum": null
+            },
+            "require": {
+                "ezyang/htmlpurifier": "^4.6",
+                "oomphinc/composer-installers-extender": "^1.1",
+                "php": ">=7.1.0",
+                "terabytesoftw/asset-floatlabel": "^1.0@dev",
+                "terabytesoftw/asset-fontawesome": "^1.0@dev",
+                "terabytesoftw/asset-user": "^1.0@dev",
+                "terabytesoftw/mailer-user": "^1.0@dev",
+                "yiisoft/yii2": "^2.0.20",
+                "yiisoft/yii2-bootstrap4": "^2.0.3",
+                "yiisoft/yii2-swiftmailer": "^2.1.0"
+            },
+            "require-dev": {
+                "codeception/c3": "2.*",
+                "codeception/codeception": "^3.0",
+                "codeception/specify": "*",
+                "codeception/verify": "*",
+                "dms/phpunit-arraysubset-asserts": "^0.1.0",
+                "hiqdev/composer-config-plugin": "^1.0@dev",
+                "monolog/monolog": "*",
+                "terabytesoftw/app-basic": "^1.0@dev",
+                "yiisoft/yii2-debug": "~2.1.0",
+                "yiisoft/yii2-faker": "~2.0.0",
+                "yiisoft/yii2-gii": "~2.1.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "config-plugin": {
+                    "defines": [
+                        "config/defines.php",
+                        "config/event.php"
+                    ],
+                    "params": [
+                        "config/appuser.php",
+                        "config/params.php"
+                    ],
+                    "console": [
+                        "config/console.php"
+                    ],
+                    "tests": [
+                        "config/test.php"
+                    ],
+                    "web": [
+                        "config/web.php"
+                    ],
+                    "events": "config/event.php"
+                },
+                "installer-types": [
+                    "bower-asset",
+                    "npm-asset"
+                ],
+                "installer-paths": {
+                    "./node_modules/{$name}": [
+                        "type:bower-asset",
+                        "type:npm-asset"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "terabytesoft\\app\\user\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "terabytesoft\\app\\user\\tests\\": "tests/src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Wilmer Arambula",
+                    "email": "wilmer.arambula@gmail.com"
+                }
+            ],
+            "description": "Flexible user registration and authentication module for Yii 2.0",
+            "keywords": [
+                "user management",
+                "yii"
+            ]
+        },
+        {
+            "name": "terabytesoftw/asset-floatlabel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/terabytesoftw/asset-floatlabel.git",
+                "reference": "ab6b385274173df7e810d233b308c4585154b2c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/terabytesoftw/asset-floatlabel/zipball/ab6b385274173df7e810d233b308c4585154b2c4",
+                "reference": "ab6b385274173df7e810d233b308c4585154b2c4",
+                "shasum": ""
+            },
+            "require": {
+                "oomphinc/composer-installers-extender": "^1.1",
+                "php": "^7.2.0",
+                "yiisoft/yii2": "^2.0.20",
+                "yiisoft/yii2-bootstrap4": "^2.0.3"
+            },
+            "require-dev": {
+                "codeception/c3": "2.*",
+                "codeception/codeception": "^3.0",
+                "codeception/specify": "*",
+                "codeception/verify": "*",
+                "dms/phpunit-arraysubset-asserts": "^0.1.0",
+                "hiqdev/composer-config-plugin": "^1.0@dev",
+                "monolog/monolog": "*",
+                "yiisoft/yii2-debug": "~2.1.0",
+                "yiisoft/yii2-faker": "~2.0.0",
+                "yiisoft/yii2-gii": "~2.1.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "installer-types": [
+                    "bower-asset",
+                    "npm-asset"
+                ],
+                "installer-paths": {
+                    "./node_modules/{$name}": [
+                        "type:bower-asset",
+                        "type:npm-asset"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "terabytesoft\\assets\\floatlabel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Wilmer Arambula",
+                    "email": "wilmer.arambula@gmail.com"
+                }
+            ],
+            "description": "Asset Floating Label Bootstrap4",
+            "homepage": "https://github.com/terabytesoftw/asset-floatlabel",
+            "keywords": [
+                "asset",
+                "bootstrap4",
+                "floatlabel"
+            ],
+            "time": "2019-07-06T23:16:42+00:00"
+        },
+        {
+            "name": "terabytesoftw/asset-fontawesome",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/terabytesoftw/asset-fontawesome.git",
+                "reference": "5e0c2e798f7c16afe385f364626305334f90d514"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/terabytesoftw/asset-fontawesome/zipball/5e0c2e798f7c16afe385f364626305334f90d514",
+                "reference": "5e0c2e798f7c16afe385f364626305334f90d514",
+                "shasum": ""
+            },
+            "require": {
+                "npm-asset/fortawesome--fontawesome-free": "^5.6.3",
+                "oomphinc/composer-installers-extender": "^1.1",
+                "php": "^7.2.0",
+                "yiisoft/yii2": "^2.0.20"
+            },
+            "require-dev": {
+                "codeception/c3": "2.*",
+                "codeception/codeception": "^3.0",
+                "codeception/specify": "*",
+                "codeception/verify": "*",
+                "dms/phpunit-arraysubset-asserts": "^0.1.0",
+                "hiqdev/composer-config-plugin": "^1.0@dev",
+                "monolog/monolog": "*",
+                "yiisoft/yii2-debug": "~2.1.0",
+                "yiisoft/yii2-gii": "~2.1.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "config-plugin": {
+                    "params": [
+                        "config/assetfontawesome.php"
+                    ],
+                    "tests": [
+                        "config/test.php"
+                    ]
+                },
+                "installer-types": [
+                    "bower-asset",
+                    "npm-asset"
+                ],
+                "installer-paths": {
+                    "./node_modules/{$name}": [
+                        "type:bower-asset",
+                        "type:npm-asset"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "terabytesoft\\assets\\fontawesome\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Wilmer Arambula",
+                    "email": "wilmer.arambula@gmail.com"
+                }
+            ],
+            "description": "Assets Font Awesome Free",
+            "homepage": "https://github.com/terabytesoftw/asset-fontawesome",
+            "keywords": [
+                "assets",
+                "font awesome",
+                "free"
+            ],
+            "time": "2019-07-05T21:01:10+00:00"
+        },
+        {
+            "name": "terabytesoftw/asset-user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/terabytesoftw/asset-user.git",
+                "reference": "7f5b4c362af5ca9414d335f923025b7bd3580c23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/terabytesoftw/asset-user/zipball/7f5b4c362af5ca9414d335f923025b7bd3580c23",
+                "reference": "7f5b4c362af5ca9414d335f923025b7bd3580c23",
+                "shasum": ""
+            },
+            "require": {
+                "oomphinc/composer-installers-extender": "^1.1",
+                "php": "^7.2.0",
+                "yiisoft/yii2": "^2.0.20",
+                "yiisoft/yii2-bootstrap4": "^2.0.3"
+            },
+            "require-dev": {
+                "codeception/c3": "2.*",
+                "codeception/codeception": "^3.0",
+                "codeception/specify": "*",
+                "codeception/verify": "*",
+                "dms/phpunit-arraysubset-asserts": "^0.1.0",
+                "hiqdev/composer-config-plugin": "^1.0@dev",
+                "monolog/monolog": "*",
+                "terabytesoftw/asset-fontawesome": "^1.0@dev",
+                "yiisoft/yii2-debug": "~2.1.0",
+                "yiisoft/yii2-faker": "~2.0.0",
+                "yiisoft/yii2-gii": "~2.1.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "installer-types": [
+                    "bower-asset",
+                    "npm-asset"
+                ],
+                "installer-paths": {
+                    "./node_modules/{$name}": [
+                        "type:bower-asset",
+                        "type:npm-asset"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "terabytesoft\\assets\\user\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Wilmer Arambula",
+                    "email": "wilmer.arambula@gmail.com"
+                }
+            ],
+            "description": "Assets User Core Bootstrap 4",
+            "homepage": "https://github.com/terabytesoftw/asset-user",
+            "keywords": [
+                "assets",
+                "bootstrap4",
+                "core",
+                "user",
+                "yii"
+            ],
+            "time": "2019-07-07T13:37:21+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.1.3",
             "source": {
@@ -4410,6 +5034,75 @@
                 "validate"
             ],
             "time": "2018-12-25T11:19:39+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-bootstrap4",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-bootstrap4.git",
+                "reference": "30317f483b38fdac3476583d68e619d3b3393a4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap4/zipball/30317f483b38fdac3476583d68e619d3b3393a4d",
+                "reference": "30317f483b38fdac3476583d68e619d3b3393a4d",
+                "shasum": ""
+            },
+            "require": {
+                "npm-asset/bootstrap": "^4.3",
+                "yiisoft/yii2": "~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "<7",
+                "yiisoft/yii2-coding-standards": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\bootstrap4\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                },
+                {
+                    "name": "Alexander Makarov",
+                    "email": "sam@rmcreative.ru",
+                    "homepage": "http://rmcreative.ru/"
+                },
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "amigo.cobos@gmail.com"
+                },
+                {
+                    "name": "Simon Karlen",
+                    "email": "simi.albi@gmail.com"
+                },
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com",
+                    "homepage": "http://www.yiiframework.com/"
+                }
+            ],
+            "description": "The Twitter Bootstrap extension for the Yii framework",
+            "keywords": [
+                "bootstrap",
+                "bootstrap4",
+                "yii2"
+            ],
+            "time": "2019-07-02T10:22:59+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -4565,12 +5258,63 @@
                 "yii2"
             ],
             "time": "2019-03-17T19:23:15+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-swiftmailer",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
+                "reference": "09659a55959f9e64b8178d842b64a9ffae42b994"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/09659a55959f9e64b8178d842b64a9ffae42b994",
+                "reference": "09659a55959f9e64b8178d842b64a9ffae42b994",
+                "shasum": ""
+            },
+            "require": {
+                "swiftmailer/swiftmailer": "~6.0",
+                "yiisoft/yii2": ">=2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\swiftmailer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "The SwiftMailer integration for the Yii framework",
+            "keywords": [
+                "email",
+                "mail",
+                "mailer",
+                "swift",
+                "swiftmailer",
+                "yii2"
+            ],
+            "time": "2018-09-23T22:00:47+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "hiqdev/composer-config-plugin": 20
+        "hiqdev/composer-config-plugin": 20,
+        "terabytesoftw/app-user": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -27,11 +27,10 @@
     "require-dev": {
         "codeception/codeception": "^3.0",
         "codeception/c3": "2.*",
-        "codeception/specify": "*",
-        "codeception/verify": "*",
         "dms/phpunit-arraysubset-asserts": "^0.1.0",
         "hiqdev/composer-config-plugin": "^1.0@dev",
         "monolog/monolog": "*",
+        "terabytesoftw/app-user": "@dev",
         "yiisoft/yii2-debug": "~2.1.0",
         "yiisoft/yii2-gii": "~2.1.0",
         "yiisoft/yii2-faker": "~2.0.0"
@@ -52,6 +51,14 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         },
+        "config-plugin": {
+            "defines": [
+                "config/defines.php"
+            ],
+            "params": [
+				"config/params.php"
+            ]
+        },
         "installer-types": [
             "bower-asset",
             "npm-asset"
@@ -67,6 +74,10 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "path",
+            "url": "D:/git-local/terabytesoftw/app-user"
         }
     ]
 }

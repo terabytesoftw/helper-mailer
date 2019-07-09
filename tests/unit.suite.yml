@@ -7,4 +7,6 @@ modules:
     enabled:
         - Asserts
         - \terabytesoft\mailer\user\tests\Helper\Unit
-    step_decorators: ~        
+        - Yii2:
+            part: [orm, email, fixtures]
+    step_decorators: ~

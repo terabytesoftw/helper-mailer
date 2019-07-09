@@ -24,3 +24,6 @@ coverage:
     whitelist:
         include:
             - src/*
+        exclude:
+            - src/messages/*
+            - src/assets/css/*

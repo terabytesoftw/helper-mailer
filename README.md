@@ -53,20 +53,20 @@ vendor/             contains dependent 3rd-party packages
 ### **GENERATE MESSAGES TRANSLATION:**
 
 <p align="justify">
-To generate the Yii 2.0 Web Application Basic translations, you can change the language settings in:
+To generate the Component Mailer User Core translations, you can change the language settings in:
 <p>
 
 ```
-config/messages.php - [app-template-basic]:
+config/messages.php - [mailer-user]:
 
 'languages' => ['en'], 
 ```
 <p align="justify">
- Automatically the generator will create the folder of your language in /messages - [app-template-basic], If any translation is needed, you can open an issue to add it.
+ Automatically the generator will create the folder of your language in /messages - [mailer-user], If any translation is needed, you can open an issue to add it.
 </p>
 
 ```
-root directory - [app-template-basic]:
+root directory - [mailer-user]:
 ./vendor/bin/yii message config/messages.php
 ```
 
