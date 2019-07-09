@@ -57,6 +57,9 @@
             ],
             "params": [
 				"config/params.php"
+            ],
+            "tests": [
+                "config/test.php"
             ]
         },
         "installer-types": [

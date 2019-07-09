@@ -19,7 +19,7 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'enableSwiftMailerLogging' => $params['web.mailer.enableswiftmailerlogging'],
+            'enableSwiftMailerLogging' => $params['web.mailer.enable.swiftmailer.logging'],
         ],
     ],
     'params' => $params,
