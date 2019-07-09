@@ -201,11 +201,7 @@ class MailerTest extends \Codeception\Test\Unit
         $this->userModel->email = 'mailer@mailer-user.com';
         $this->userModel->password = 'testGeneratedPassword';
 
-        $this->mailer->sendWelcomeMessage(
-            $this->userModel,
-            isset($this->tokenModel) ? $this->tokenModel : null,
-            $this->module,
-        );
+        $this->mailer->sendWelcomeMessage($this->userModel, $this->tokenModel, $this->module);
 
         $this->tester->seeEmailIsSent();
 
