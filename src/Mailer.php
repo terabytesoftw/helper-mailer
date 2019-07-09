@@ -198,14 +198,23 @@ class Mailer extends Component
      **/
     public function sendReconfirmationMessage(ActiveRecord $user, ActiveRecord $token): bool
     {
-        if ($token->type == $token::TYPE_CONFIRM_NEW_EMAIL) {
-            $email = $user->unconfirmed_email;
-        } else {
-            $email = $user->email;
-        }
-
         return $this->sendMessage(
-            $email,
+            $user->email,
+            $this->getReconfirmationSubject(),
+            'reconfirmation',
+            ['user' => $user, 'token' => $token]
+        );
+    }
+
+    /**
+     * sendReconfirmationMessageConfirmNewEmail
+     *
+     * sends an email to a user with reconfirmation link
+     **/
+    public function sendReconfirmationMessageConfirmNewEmail(ActiveRecord $user, ActiveRecord $token): bool
+    {
+        return $this->sendMessage(
+            $user->unconfirmed_email,
             $this->getReconfirmationSubject(),
             'reconfirmation',
             ['user' => $user, 'token' => $token]

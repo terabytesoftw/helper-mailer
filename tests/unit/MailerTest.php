@@ -127,14 +127,14 @@ class MailerTest extends \Codeception\Test\Unit
     }
 
     /**
-     * testMailerSendReconfirmationMessageNewMailTokenTypeConfirmNewMail
+     * testMailerSendReconfirmationMessageConfirmNewEmail
      */
-    public function testMailerSendReconfirmationMessageNewMailTokenTypeConfirmNewMail(): void
+    public function testMailerSendReconfirmationMessageConfirmNewEmail(): void
     {
         $this->tokenModel->type = TokenModel::TYPE_CONFIRM_NEW_EMAIL;
         $this->userModel->unconfirmed_email = 'mailer@mailer-user.com';
 
-        $this->mailer->sendReconfirmationMessage($this->userModel, $this->tokenModel);
+        $this->mailer->sendReconfirmationMessageConfirmNewEmail($this->userModel, $this->tokenModel);
 
         $this->tester->seeEmailIsSent();
 
@@ -149,9 +149,9 @@ class MailerTest extends \Codeception\Test\Unit
     }
 
     /**
-     * testMailerSendReconfirmationMessageNewMailTokenTypeConfirmOldMail
+     * testMailerSendReconfirmationMessage
      */
-    public function testMailerSendReconfirmationMessageNewMailTokenTypeConfirmOldMail(): void
+    public function testMailerSendReconfirmationMessage(): void
     {
         $this->tokenModel->type = TokenModel::TYPE_CONFIRM_OLD_EMAIL;
         $this->userModel->email = 'mailer@mailer-user.com';
