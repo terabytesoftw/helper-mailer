@@ -6,5 +6,4 @@ namespace terabytesoft\mailer\user\tests\Helper;
 
 class Functional extends \Codeception\Module
 {
-
 }

@@ -6,5 +6,4 @@ namespace terabytesoft\mailer\user\tests\Helper;
 
 class Unit extends \Codeception\Module
 {
-
 }
