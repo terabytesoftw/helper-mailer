@@ -19,15 +19,6 @@ class TokenModel extends ActiveRecord
     const TYPE_CONFIRM_OLD_EMAIL = 3;
 
     /**
-     * tableName.
-     *
-     **/
-    public static function tableName()
-    {
-        return '{{%token}}';
-    }
-
-    /**
      * getUrl
      *
      * @return string

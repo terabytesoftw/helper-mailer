@@ -15,6 +15,11 @@ use yii\mail\MessageInterface;
  */
 class MailerTest extends \Codeception\Test\Unit
 {
+    const TYPE_CONFIRMATION      = 0;
+    const TYPE_RECOVERY          = 1;
+    const TYPE_CONFIRM_NEW_EMAIL = 2;
+    const TYPE_CONFIRM_OLD_EMAIL = 3;
+
     /**
      * @var Mailer $mailer
      */
@@ -47,8 +52,22 @@ class MailerTest extends \Codeception\Test\Unit
     {
         $this->mailer = new Mailer();
         $this->module = \Yii::$app->getModule('user');
-        $this->tokenModel = new TokenModel();
-        $this->userModel = new UserModel();
+        $this->tokenModel = $this->getMockBuilder(TokenModel::class)
+            ->setMethods(['attributes'])
+            ->getMock();
+        $this->tokenModel->method('attributes')->willReturn([
+            'user_id',
+            'code',
+            'type',
+        ]);
+        $this->userModel = $this->getMockBuilder(UserModel::class)
+            ->setMethods(['attributes'])
+            ->getMock();
+        $this->userModel->method('attributes')->willReturn([
+            'user_id',
+            'email',
+            'unconfirmed_email',
+        ]);
     }
 
     /**

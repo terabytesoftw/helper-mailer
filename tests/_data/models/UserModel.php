@@ -11,13 +11,4 @@ class UserModel extends ActiveRecord
 {
     /** @var string plain password. Used for model validation * */
     public $password;
-
-    /**
-     * tableName.
-     *
-     **/
-    public static function tableName()
-    {
-        return '{{%user}}';
-    }
 }

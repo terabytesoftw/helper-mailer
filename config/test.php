@@ -24,13 +24,6 @@ $config = [
             'basePath' => '@public/assets',
             'forceCopy' => true,
         ],
-        'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=appuser',
-            'username' => 'root',
-            'password' => '1234',
-            'charset' => 'utf8',
-        ],
         'i18n' => [
             'translations' => [
                 'mailer.user' => [
