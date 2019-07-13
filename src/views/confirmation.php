@@ -19,7 +19,7 @@ Html::beginTag('p', ['class' => 'mailer-confirmation']);
 Html::endTag('p');
 
 Html::beginTag('p', ['class' => 'mailer-confirmation']);
-    echo Html::a(Html::encode($tokenUrl), $tokenUrl);
+    Html::a(Html::encode($tokenUrl), $tokenUrl);
 Html::endTag('p');
 
 Html::beginTag('p', ['class' => 'mailer-confirmation']);

@@ -19,7 +19,7 @@ Html::beginTag('p', ['class' => 'mailer-recovery']);
 Html::endTag('p');
 
 Html::beginTag('p', ['class' => 'mailer-recovery']);
-    echo Html::a(Html::encode($tokenUrl), $tokenUrl);
+    Html::a(Html::encode($tokenUrl), $tokenUrl);
 Html::endTag('p');
 
 Html::beginTag('p', ['class' => 'mailer-recovery']);
