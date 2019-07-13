@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @var \terabytesoft\app\user\models\UserModel $user
+ * @var bool $accountGeneratingPassword
+ * @var string $password
+ * @var bool $showPassword
+ * @var string $tokenUrl
  */
-?>
 
-<?= \Yii::t('mailer.user', 'Hello') ?>,
+echo \Yii::t('mailer.user', 'Hello') . ',';
 
-<?= \Yii::t('mailer.user', 'Your account on {0} has been created', [\Yii::$app->name]) ?> .
+echo \Yii::t('mailer.user', 'Your account on {0} has been created.', [\Yii::$app->name]);
 
-<?php if ($showPassword || $accountGeneratingPassword) : ?>
-    <?= \Yii::t('mailer.user', 'We have generated a password for you') ?>:
-    <?= $user->password ?>
-<?php endif ?>
+if ($showPassword || $accountGeneratingPassword) {
+    echo \Yii::t('mailer.user', 'We have generated a password for you:');
+    echo '<b>' . $password . '</b>';
+}
 
-<?php if ($token !== null) : ?>
-    <?= \Yii::t('mailer.user', 'In order to complete your registration, please click the link below') ?> .
+if ($tokenUrl !== null) {
+    echo \Yii::t('mailer.user', 'In order to complete your registration, please click the link below.');
+    echo '<b>' . $tokenUrl . '</b>';
+    echo \Yii::t('mailer.user', 'If you cannot click the link, please try pasting the text into your browser.');
+}
 
-    <?= $token->url ?>
-
-    <?= \Yii::t('mailer.user', 'If you cannot click the link, please try pasting the text into your browser') ?> .
-<?php endif ?>
-
-<?= \Yii::t('mailer.user', 'If you did not make this request you can ignore this email.') ?>
+echo \Yii::t('mailer.user', 'If you did not make this request you can ignore this email.');

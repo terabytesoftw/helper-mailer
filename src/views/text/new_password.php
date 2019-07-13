@@ -1,16 +1,14 @@
 <?php
 
 /**
- * @var \terabytesoft\app\user\models\UserModel $user
+ * @var string $password
  */
 
-?>
+echo \Yii::t('mailer.user', 'Hello') . ',';
 
-<?= \Yii::t('mailer.user', 'Hello') ?>,
+echo \Yii::t('mailer.user', 'Your account on {0} has a new password.', [\Yii::$app->name]);
+echo \Yii::t('mailer.user', 'We have generated a password for you: ') ;
 
-<?= \Yii::t('mailer.user', 'Your account on {0} has a new password', [\Yii::$app->name]) ?> .
-<?= \Yii::t('mailer.user', 'We have generated a password for you') ?>:
+echo '<b>' . $password . '</b>';
 
-<?= $user->password ?>
-
-<?= \Yii::t('mailer.user', 'If you did not make this request you can ignore this email.') ?>
+echo \Yii::t('mailer.user', 'If you did not make this request you can ignore this email.');

@@ -4,11 +4,11 @@
  * Web application configuration shared by all test types
  */
 
-$params = require __DIR__ . '/params.php';
+$params = require __DIR__ . '/maileruser.php';
 
 $config = [
-    'id' => 'testme-mailer-user',
-    'name'=> 'testme-mailer-user',
+    'id' => 'Mailer-User',
+    'name'=> 'Mailer-User',
     'aliases' => [
         '@bower'   => '@root/node_modules',
         '@npm'   => '@root/node_modules',

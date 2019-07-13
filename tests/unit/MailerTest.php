@@ -89,7 +89,12 @@ class MailerTest extends \Codeception\Test\Unit
         $this->tokenModel->type = TokenModel::TYPE_CONFIRMATION;
         $this->userModel->email = 'mailer@mailer-user.com';
 
-        $this->mailer->sendConfirmationMessage($this->userModel, $this->tokenModel);
+        $this->mailer->sendConfirmationMessage(
+            $this->userModel->email,
+            [
+                'tokenUrl' => $this->tokenModel->url
+            ]
+        );
 
         $this->tester->seeEmailIsSent();
 
@@ -97,7 +102,10 @@ class MailerTest extends \Codeception\Test\Unit
 
         \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
-        \PHPUnit_Framework_Assert::assertEquals('Confirm account on testme-mailer-user', $emailMessage->getSubject());
+        \PHPUnit_Framework_Assert::assertEquals(
+            \Yii::$app->params['mailer.user.subject.reconfirmation'],
+            $emailMessage->getSubject()
+        );
     }
 
     /**
@@ -108,7 +116,12 @@ class MailerTest extends \Codeception\Test\Unit
         $this->userModel->email = 'mailer@mailer-user.com';
         $this->userModel->password = 'testGeneratedPassword';
 
-        $this->mailer->sendGeneratedPassword($this->userModel, $this->userModel->password);
+        $this->mailer->sendGeneratedPassword(
+            $this->userModel->email,
+            [
+                'password' => $this->userModel->password
+            ]
+        );
 
         $this->tester->seeEmailIsSent();
 
@@ -117,34 +130,12 @@ class MailerTest extends \Codeception\Test\Unit
         \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
         \PHPUnit_Framework_Assert::assertEquals(
-            'Your password on testme-mailer-user has been changed',
+            \Yii::$app->params['mailer.user.subject.password'],
             $emailMessage->getSubject()
         );
         \PHPUnit_Framework_Assert::assertStringContainsString(
             $this->userModel->password,
             $emailMessage
-        );
-    }
-
-    /**
-     * testMailerSendReconfirmationMessageConfirmNewEmail
-     */
-    public function testMailerSendReconfirmationMessageConfirmNewEmail(): void
-    {
-        $this->tokenModel->type = TokenModel::TYPE_CONFIRM_NEW_EMAIL;
-        $this->userModel->unconfirmed_email = 'mailer@mailer-user.com';
-
-        $this->mailer->sendReconfirmationMessageConfirmNewEmail($this->userModel, $this->tokenModel);
-
-        $this->tester->seeEmailIsSent();
-
-        $emailMessage = $this->tester->grabLastSentEmail();
-
-        \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
-        \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
-        \PHPUnit_Framework_Assert::assertEquals(
-            'Confirm email change on testme-mailer-user',
-            $emailMessage->getSubject()
         );
     }
 
@@ -156,7 +147,12 @@ class MailerTest extends \Codeception\Test\Unit
         $this->tokenModel->type = TokenModel::TYPE_CONFIRM_OLD_EMAIL;
         $this->userModel->email = 'mailer@mailer-user.com';
 
-        $this->mailer->sendReconfirmationMessage($this->userModel, $this->tokenModel);
+        $this->mailer->sendReconfirmationMessage(
+            $this->userModel->email,
+            [
+                'tokenUrl' => $this->tokenModel->url
+            ]
+        );
 
         $this->tester->seeEmailIsSent();
 
@@ -165,7 +161,34 @@ class MailerTest extends \Codeception\Test\Unit
         \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
         \PHPUnit_Framework_Assert::assertEquals(
-            'Confirm email change on testme-mailer-user',
+            \Yii::$app->params['mailer.user.subject.reconfirmation'],
+            $emailMessage->getSubject()
+        );
+    }
+
+    /**
+     * testMailerSendReconfirmationMessageConfirmNewEmail
+     */
+    public function testMailerSendReconfirmationMessageConfirmNewEmail(): void
+    {
+        $this->tokenModel->type = TokenModel::TYPE_CONFIRM_NEW_EMAIL;
+        $this->userModel->unconfirmed_email = 'mailer@mailer-user.com';
+
+        $this->mailer->sendReconfirmationMessage(
+            $this->userModel->unconfirmed_email,
+            [
+                'tokenUrl' => $this->tokenModel->url
+            ]
+        );
+
+        $this->tester->seeEmailIsSent();
+
+        $emailMessage = $this->tester->grabLastSentEmail();
+
+        \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
+        \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
+        \PHPUnit_Framework_Assert::assertEquals(
+            \Yii::$app->params['mailer.user.subject.reconfirmation'],
             $emailMessage->getSubject()
         );
     }
@@ -178,7 +201,12 @@ class MailerTest extends \Codeception\Test\Unit
         $this->tokenModel->type = TokenModel::TYPE_RECOVERY;
         $this->userModel->email = 'mailer@mailer-user.com';
 
-        $this->mailer->sendRecoveryMessage($this->userModel, $this->tokenModel);
+        $this->mailer->sendRecoveryMessage(
+            $this->userModel->email,
+            [
+                'tokenUrl' => $this->tokenModel->url
+            ]
+        );
 
         $this->tester->seeEmailIsSent();
 
@@ -187,7 +215,7 @@ class MailerTest extends \Codeception\Test\Unit
         \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
         \PHPUnit_Framework_Assert::assertEquals(
-            'Complete password reset on testme-mailer-user',
+            \Yii::$app->params['mailer.user.subject.recovery'],
             $emailMessage->getSubject()
         );
     }
@@ -202,9 +230,13 @@ class MailerTest extends \Codeception\Test\Unit
         $this->userModel->password = 'testGeneratedPassword';
 
         $this->mailer->sendWelcomeMessage(
-            $this->userModel,
-            $this->tokenModel,
-            $this->module->accountGeneratingPassword
+            $this->userModel->email,
+            [
+                'accountGeneratingPassword' => $this->module->accountGeneratingPassword,
+                'password' => $this->userModel->password,
+                'showPassword' => true,
+                'tokenUrl' => $this->tokenModel->url
+            ]
         );
 
         $this->tester->seeEmailIsSent();
@@ -214,7 +246,7 @@ class MailerTest extends \Codeception\Test\Unit
         \PHPUnit_Framework_Assert::assertArrayHasKey('mailer@mailer-user.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@mailer-user.com', $emailMessage->getFrom());
         \PHPUnit_Framework_Assert::assertEquals(
-            'Welcome to testme-mailer-user',
+            \Yii::$app->params['mailer.user.subject.welcome'],
             $emailMessage->getSubject()
         );
         \PHPUnit_Framework_Assert::assertStringContainsString(

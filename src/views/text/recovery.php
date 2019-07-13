@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @var \terabytesoft\app\user\models\TokenModel $token
+ * @var string $tokenUrl
  */
-?>
 
-<?= \Yii::t('mailer.user', 'Hello') ?>,
+echo \Yii::t('mailer.user', 'Hello') . ',';
 
-<?= \Yii::t(
+echo \Yii::t(
     'mailer.user',
-    'We have received a request to reset the password for your account on {0} - ' . \Yii::$app->name
-)?> .
-<?= \Yii::t('mailer.user', 'Please click the link below to complete your password reset') ?> .
+    'We have received a request to reset the password for your account on {0}.',
+    [\Yii::$app->name]
+) .
+\Yii::t('mailer.user', 'Please click the link below to complete your password reset.');
 
-<?= $token->url ?>
+'<b>' . $tokenUrl . '</b>';
 
-<?= \Yii::t('mailer.user', 'If you cannot click the link, please try pasting the text into your browser') ?> .
-<?= \Yii::t('mailer.user', 'If you did not make this request you can ignore this email.') ?>
+echo \Yii::t('mailer.user', 'If you cannot click the link, please try pasting the text into your browser.');
+echo \Yii::t('mailer.user', 'If you did not make this request you can ignore this email.');

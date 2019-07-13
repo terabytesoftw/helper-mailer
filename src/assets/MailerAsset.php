@@ -2,6 +2,8 @@
 
 /**
  * MailAsset
+ *
+ * Asset mailer user custom
  **/
 
 namespace terabytesoft\mailer\user\assets;

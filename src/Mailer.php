@@ -21,147 +21,20 @@ class Mailer extends Component
     protected $recoverySubject;
     protected $welcomeSubject;
 
-
     /**
-     * getWelcomeSubject
-     **/
-    public function getWelcomeSubject(): string
-    {
-        if ($this->welcomeSubject == null) {
-            $this->setWelcomeSubject(\Yii::t(
-                'mailer.user',
-                'Welcome to {0}',
-                [\Yii::$app->name]
-            ));
-        }
-
-        return $this->welcomeSubject;
-    }
-
-    /**
-     * setWelcomeSubject
-     **/
-    public function setWelcomeSubject(string $welcomeSubject): string
-    {
-        return $this->welcomeSubject = $welcomeSubject;
-    }
-
-    /**
-     * getNewPasswordSubject
-     **/
-    public function getNewPasswordSubject(): string
-    {
-        if ($this->newPasswordSubject == null) {
-            $this->setNewPasswordSubject(\Yii::t(
-                'mailer.user',
-                'Your password on {0} has been changed',
-                [\Yii::$app->name]
-            ));
-        }
-
-        return $this->newPasswordSubject;
-    }
-
-    /**
-     * setNewPasswordSubject
-     **/
-    public function setNewPasswordSubject(string $newPasswordSubject): string
-    {
-        return $this->newPasswordSubject = $newPasswordSubject;
-    }
-
-    /**
-     * getConfirmationSubject
-     **/
-    public function getConfirmationSubject(): string
-    {
-        if ($this->confirmationSubject == null) {
-            $this->setConfirmationSubject(\Yii::t(
-                'mailer.user',
-                'Confirm account on {0}',
-                [\Yii::$app->name]
-            ));
-        }
-
-        return $this->confirmationSubject;
-    }
-
-    /**
-     * setConfirmationSubject
-     **/
-    public function setConfirmationSubject(string $confirmationSubject): string
-    {
-        return $this->confirmationSubject = $confirmationSubject;
-    }
-
-    /**
-     * getReconfirmationSubject
-     **/
-    public function getReconfirmationSubject(): string
-    {
-        if ($this->reconfirmationSubject == null) {
-            $this->setReconfirmationSubject(\Yii::t(
-                'mailer.user',
-                'Confirm email change on {0}',
-                [\Yii::$app->name]
-            ));
-        }
-
-        return $this->reconfirmationSubject;
-    }
-
-    /**
-     * setReconfirmationSubject
-     **/
-    public function setReconfirmationSubject($reconfirmationSubject): string
-    {
-        return $this->reconfirmationSubject = $reconfirmationSubject;
-    }
-
-    /**
-     * getRecoverySubject
-     **/
-    public function getRecoverySubject(): string
-    {
-        if ($this->recoverySubject == null) {
-            $this->setRecoverySubject(\Yii::t(
-                'mailer.user',
-                'Complete password reset on {0}',
-                [\Yii::$app->name]
-            ));
-        }
-
-        return $this->recoverySubject;
-    }
-
-    /**
-     * setRecoverySubject
-     **/
-    public function setRecoverySubject(string $recoverySubject): string
-    {
-        return $this->recoverySubject = $recoverySubject;
-    }
-
-    /**
-     * sendWelcomeMessage
+     * sendConfirmationMessage
      *
-     * sends an email to a user after registration
+     * sends an email to a user with confirmation link
      **/
-    public function sendWelcomeMessage(
-        ActiveRecord $user,
-        ActiveRecord $token = null,
-        bool $accountGeneratingPassword,
-        $showPassword = false
-    ): bool {
+    public function sendConfirmationMessage(string $email, array $params): bool
+    {
         return $this->sendMessage(
-            $user->email,
-            $this->getWelcomeSubject(),
-            'welcome',
+            $email,
+            \Yii::$app->params['mailer.user.subject.reconfirmation'],
+            'confirmation',
             [
-                'user' => $user,
-                'token' => $token,
-                'showPassword' => $showPassword,
-                'accountGeneratingPassword' => $accountGeneratingPassword]
+                'tokenUrl' => $params['tokenUrl']
+            ]
         );
     }
 
@@ -170,28 +43,15 @@ class Mailer extends Component
      *
      * sends a new generated password to a user
      **/
-    public function sendGeneratedPassword(ActiveRecord $user, string $password): bool
+    public function sendGeneratedPassword(string $email, array $params): bool
     {
         return $this->sendMessage(
-            $user->email,
-            $this->getNewPasswordSubject(),
+            $email,
+            \Yii::$app->params['mailer.user.subject.password'],
             'new_password',
-            ['user' => $user, 'password' => $password]
-        );
-    }
-
-    /**
-     * sendConfirmationMessage
-     *
-     * sends an email to a user with confirmation link
-     **/
-    public function sendConfirmationMessage(ActiveRecord $user, ActiveRecord $token): bool
-    {
-        return $this->sendMessage(
-            $user->email,
-            $this->getConfirmationSubject(),
-            'confirmation',
-            ['user' => $user, 'token' => $token]
+            [
+                'password' => $params['password']
+            ]
         );
     }
 
@@ -200,28 +60,15 @@ class Mailer extends Component
      *
      * sends an email to a user with reconfirmation link
      **/
-    public function sendReconfirmationMessage(ActiveRecord $user, ActiveRecord $token): bool
+    public function sendReconfirmationMessage(string $email, array $params): bool
     {
         return $this->sendMessage(
-            $user->email,
-            $this->getReconfirmationSubject(),
+            $email,
+            \Yii::$app->params['mailer.user.subject.reconfirmation'],
             'reconfirmation',
-            ['user' => $user, 'token' => $token]
-        );
-    }
-
-    /**
-     * sendReconfirmationMessageConfirmNewEmail
-     *
-     * sends an email to a user with reconfirmation link
-     **/
-    public function sendReconfirmationMessageConfirmNewEmail(ActiveRecord $user, ActiveRecord $token): bool
-    {
-        return $this->sendMessage(
-            $user->unconfirmed_email,
-            $this->getReconfirmationSubject(),
-            'reconfirmation',
-            ['user' => $user, 'token' => $token]
+            [
+                'tokenUrl' => $params['tokenUrl']
+            ]
         );
     }
 
@@ -230,14 +77,36 @@ class Mailer extends Component
      *
      * sends an email to a user with recovery link
      **/
-    public function sendRecoveryMessage(ActiveRecord $user, ActiveRecord $token): bool
+    public function sendRecoveryMessage(string $email, array $params): bool
     {
         \Yii::$app->session->set('sendRecoveryMessage', true);
         return $this->sendMessage(
-            $user->email,
-            $this->getRecoverySubject(),
+            $email,
+            \Yii::$app->params['mailer.user.subject.recovery'],
             'recovery',
-            ['user' => $user, 'token' => $token]
+            [
+                'tokenUrl' => $params['tokenUrl']
+            ]
+        );
+    }
+
+    /**
+     * sendWelcomeMessage
+     *
+     * sends an email to a user after registration
+     **/
+    public function sendWelcomeMessage(string $email, array $params): bool
+    {
+        return $this->sendMessage(
+            $email,
+            \Yii::$app->params['mailer.user.subject.welcome'],
+            'welcome',
+            [
+                'accountGeneratingPassword' => $params['accountGeneratingPassword'],
+                'password' => $params['password'],
+                'showPassword' => $params['showPassword'],
+                'tokenUrl' => $params['tokenUrl']
+            ]
         );
     }
 

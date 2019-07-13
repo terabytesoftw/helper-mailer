@@ -4,7 +4,7 @@
  * Web application configuration shared by all test types
  */
 
-$params = require __DIR__ . '/params.php';
+$params = require __DIR__ . '/maileruser.php';
 
 $params = $params ?? [];
 
@@ -19,7 +19,8 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'enableSwiftMailerLogging' => $params['web.mailer.enable.swiftmailer.logging'],
+            'enableSwiftMailerLogging' => $params['mailer.user.email.swiftmailer.logging'],
+            'useFileTransport' => $params['mailer.user.email.usefiletransport'],
         ],
     ],
     'params' => $params,
