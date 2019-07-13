@@ -26,13 +26,13 @@ Html::endTag('p');
 
 if ($tokenUrl !== null) {
     Html::beginTag('p', ['class' => 'mailer-welcome']);
-        echo \Yii::t('mailer.user', 'In order to complete your registration, please click the link below.');
+    echo \Yii::t('mailer.user', 'In order to complete your registration, please click the link below.');
     Html::endTag('p');
     Html::beginTag('p', ['class' => 'mailer-welcome']);
-        echo Html::a(Html::encode($tokenUrl), $tokenUrl);
+    echo Html::a(Html::encode($tokenUrl), $tokenUrl);
     Html::endTag('p');
     Html::beginTag('p', ['class' => 'mailer-welcome']);
-        echo \Yii::t(
+    echo \Yii::t(
             'mailer.user',
             'If you cannot click the link, please try pasting the text into your browser.'
         );
