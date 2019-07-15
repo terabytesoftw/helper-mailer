@@ -35,12 +35,12 @@ class Mailer extends Component
     public function sendMessage(
         string $to,
         string $subject,
-        string $view,
         array $options = [],
         array $params = []
     ): bool {
+        $views = isset($options['views']) ? $options['views'] : [];
         $this->emailConfig = $this->mailer
-            ->compose(['html' => $view, 'text' => 'text/' . $view], $params)
+            ->compose($views, $params)
             ->setTo($to)
             ->setFrom(
                 [\Yii::$app->params['helper.mailer.sender'] => \Yii::$app->params['helper.mailer.sender.name']]

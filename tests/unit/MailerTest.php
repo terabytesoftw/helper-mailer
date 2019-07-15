@@ -46,8 +46,11 @@ class MailerTest extends \Codeception\Test\Unit
         $this->mailer->sendMessage(
             'test@helpermailer.com',
             'test mailer user codecept',
-            'viewtest',
             [
+                'views' => [
+                    'html' => 'viewtest',
+                    'text' => 'text/viewtest'
+                ],
                 'replyTo' => 'replyto@helpermailer.com'
             ],
             [
