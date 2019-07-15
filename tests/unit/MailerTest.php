@@ -48,6 +48,7 @@ class MailerTest extends \Codeception\Test\Unit
             'test mailer user codecept',
             'viewtest',
             [
+                'replyTo' => 'replyto@helpermailer.com',
                 'params' => 'test codecept params',
             ]
         );
@@ -59,6 +60,7 @@ class MailerTest extends \Codeception\Test\Unit
         \PHPUnit_Framework_Assert::assertInstanceOf(\yii\mail\MessageInterface::class, $emailMessage);
         \PHPUnit_Framework_Assert::assertArrayHasKey('test@helpermailer.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@helpermailer.com', $emailMessage->getFrom());
+        \PHPUnit_Framework_Assert::assertArrayHasKey('replyto@helpermailer.com', $emailMessage->getReplyTo());
         \PHPUnit_Framework_Assert::assertEquals(
             'test mailer user codecept',
             $emailMessage->getSubject()

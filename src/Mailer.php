@@ -11,10 +11,14 @@ use yii\base\Component;
 class Mailer extends Component
 {
     /**
+     * @var \yii\mail\MessageInterface $emailConfig
+     */
+    private $emailConfig;
+
+    /**
      * @var object $mailer
      */
     private $mailer;
-
 
     /**
      * __construct
@@ -30,12 +34,19 @@ class Mailer extends Component
      */
     public function sendMessage(string $to, string $subject, string $view, array $params = []): bool
     {
-        return $this->mailer->compose(['html' => $view, 'text' => 'text/' . $view], $params)
+        $this->emailConfig = $this->mailer
+            ->compose(['html' => $view, 'text' => 'text/' . $view], $params)
             ->setTo($to)
             ->setFrom(
                 [\Yii::$app->params['helper.mailer.sender'] => \Yii::$app->params['helper.mailer.sender.name']]
             )
-            ->setSubject($subject)
-            ->send();
+            ->setSubject($subject);
+
+        if (isset($params['replyTo'])) {
+            $this->emailConfig = $this->emailConfig
+                ->setReplyTo($params['replyTo']);
+        }
+
+        return $this->mailer->send($this->emailConfig);
     }
 }
