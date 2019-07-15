@@ -39,6 +39,7 @@ class Mailer extends Component
         array $params = []
     ): bool {
         $views = isset($options['views']) ? $options['views'] : [];
+
         $this->emailConfig = $this->mailer
             ->compose($views, $params)
             ->setTo($to)
@@ -50,6 +51,16 @@ class Mailer extends Component
         if (isset($options['replyTo'])) {
             $this->emailConfig = $this->emailConfig
                 ->setReplyTo($options['replyTo']);
+        }
+
+        if (isset($options['textBody'])) {
+            $this->emailConfig = $this->emailConfig
+                ->setTextBody($options['textBody']);
+        }
+
+        if (isset($options['textHtml'])) {
+            $this->emailConfig = $this->emailConfig
+                ->setHtmlBody($options['textHtml']);
         }
 
         return $this->mailer->send($this->emailConfig);

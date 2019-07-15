@@ -47,14 +47,8 @@ class MailerTest extends \Codeception\Test\Unit
             'test@helpermailer.com',
             'test mailer user codecept',
             [
-                'views' => [
-                    'html' => 'viewtest',
-                    'text' => 'text/viewtest'
-                ],
-                'replyTo' => 'replyto@helpermailer.com'
-            ],
-            [
-                'params' => 'test codecept params'
+                'replyTo' => 'replyto@helpermailer.com',
+                'textBody' => 'Plain text content'
             ]
         );
 
@@ -71,7 +65,68 @@ class MailerTest extends \Codeception\Test\Unit
             $emailMessage->getSubject()
         );
         \PHPUnit_Framework_Assert::assertStringContainsString(
-            'test codecept params',
+            'Plain text content',
+            $emailMessage
+        );
+    }
+
+    /**
+     * testSendMessageOptionsViews
+     */
+    public function testSendMessageOptionsViews(): void
+    {
+        $this->mailer->sendMessage(
+            'test@helpermailer.com',
+            'test mailer user codecept',
+            [
+                'views' => 'viewtest',
+                'textBody' => 'Plain text content',
+                'textHtml' => '<b>Plain text content</b>',
+            ]
+        );
+
+        $this->tester->seeEmailIsSent();
+
+        $emailMessage = $this->tester->grabLastSentEmail();
+
+        \PHPUnit_Framework_Assert::assertInstanceOf(\yii\mail\MessageInterface::class, $emailMessage);
+        \PHPUnit_Framework_Assert::assertArrayHasKey('test@helpermailer.com', $emailMessage->getTo());
+        \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@helpermailer.com', $emailMessage->getFrom());
+        \PHPUnit_Framework_Assert::assertStringContainsString(
+            'Plain text content',
+            $emailMessage
+        );
+        \PHPUnit_Framework_Assert::assertStringContainsString(
+            '<b>Plain text content</b>',
+            $emailMessage
+        );
+    }
+
+    /**
+     * testSendMessageOptionsViewsWithParams
+     */
+    public function testSendMessageOptionsViewsWithParams(): void
+    {
+        $this->mailer->sendMessage(
+            'test@helpermailer.com',
+            'test mailer user codecept',
+            [
+                'views' => 'viewtest',
+            ],
+            [
+                'params' => 'Params text content'
+            ]
+        );
+
+        $this->tester->seeEmailIsSent();
+
+        $emailMessage = $this->tester->grabLastSentEmail();
+
+        \PHPUnit_Framework_Assert::assertInstanceOf(\yii\mail\MessageInterface::class, $emailMessage);
+        \PHPUnit_Framework_Assert::assertArrayHasKey('test@helpermailer.com', $emailMessage->getTo());
+        \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@helpermailer.com', $emailMessage->getFrom());
+        \PHPUnit_Framework_Assert::assertStringContainsString(
+            'Params text content',
             $emailMessage
         );
     }

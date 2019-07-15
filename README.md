@@ -2,7 +2,7 @@
     <a href="https://github.com/terabytesoftw/helper-mailer" target="_blank">
         <img src="https://lh3.googleusercontent.com/D9TFw1F6ddPuheDc_tpNptTdvTg-FNNpjLSBN14X6Sc-3JDiOxfE67rEh4OZfygonx1tKei2b2DEOHDLjF6T3xl8e-rkEEPZeGqLTWcS_v2cBRlyo0vcZLDHG5ivSDGIWCsenbol=w2400" height="50px;">
     </a>
-    <h1 align="center">Component Mailer User Core.</h1>
+    <h1 align="center">Helper Mailer.</h1>
 </p>
 
 <p align="center">
@@ -31,15 +31,10 @@
 
 </br>
 
-<p align="center">
-App Web Application Basic of Yii Version 2.0. <a href="http://www.yiiframework.com/" title="Yii Framework" target="_blank">Yii Framework</a> application best for rapidly creating projects with Bootstrap 4.
-</p>
-
 ### **DIRECTORY STRUCTURE:**
 
 ```
 config/             contains application configurations
-docs/               contains documentation application basic
 src/                contains source files
 tests/              contains tests codeception for the web application
 vendor/             contains dependent 3rd-party packages
@@ -51,25 +46,74 @@ vendor/             contains dependent 3rd-party packages
     - PHP 7.2 or higher.
     - [Composer Config Plugin](https://github.com/hiqdev/composer-config-plugin)
 
-### **GENERATE MESSAGES TRANSLATION:**
+### **INSTALLATION:**
 
 <p align="justify">
-To generate the Component Mailer User Core translations, you can change the language settings in:
-<p>
-
-```
-config/messages.php - [mailer-user]:
-
-'languages' => ['en'], 
-```
-<p align="justify">
- Automatically the generator will create the folder of your language in /messages - [mailer-user], If any translation is needed, you can open an issue to add it.
+If you do not have <a href="http://getcomposer.org/" title="Composer" target="_blank">Composer</a>, you may install it by following the instructions at <a href="http://getcomposer.org/doc/00-intro.md#installation-nix" title="getcomposer.org" target="_blank">getcomposer.org</a>.
 </p>
 
-```
-root directory - [mailer-user]:
-./vendor/bin/yii message config/messages.php
-```
+You can then install this extension using the following command composer:
+
+~~~
+composer require terabytesoftw/helper-mailer '^1.0@dev'
+~~~
+
+or add composer.json:
+
+~~~
+"terabytesoftw/helper-mailer":"^1.0@dev"
+~~~
+
+### **USAGE:**
+
+~~~
+// config params defaults config/maileruser.php
+// note: if you change one of the default values you must execute: composer du, from the command line.
+
+    // config default
+    'helper.mailer.usefiletransport' => true,
+    'helper.mailer.sender' => 'no-reply@helpermailer.com', // from->email
+    'helper.mailer.sender.name' => 'helper mailer example', // from->name
+    'helper.mailer.swiftmailer.logging' => false,
+    'helper.mailer.viewpath' => '@root/tests/_data/views', // viewPath
+
+// Simple email:
+
+<?php
+
+use terabytesoft\helpers\Mailer;
+
+$mailer = new Mailer();
+
+$this->mailer->sendMessage(
+    'test@helpermailer.com', // to->email
+    'test mailer user codecept', // subject->email
+    // options mailer
+    [
+        'replyTo' => 'replyto@helpermailer.com', // replyTo->email
+        'textBody' => 'Plain text content' // bodyContent->email
+    ]
+);
+
+// Email with views params:
+
+<?php
+
+use terabytesoft\helpers\Mailer;
+
+$mailer = new Mailer();
+
+$this->mailer->sendMessage(
+    'test@helpermailer.com', // to->email
+    'test mailer user codecept', // subject->email
+    [
+        'views' => 'viewtest', //view->email
+    ],
+    [
+        'params' => 'Params text content' //params->email
+    ]
+);
+~~~
 
 ### **RUN TESTS CODECEPTION:**
 
