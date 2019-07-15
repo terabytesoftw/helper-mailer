@@ -26,7 +26,7 @@ class MailerTest extends \Codeception\Test\Unit
      */
     public function _before(): void
     {
-        $this->mailer = new Mailer();
+        $this->mailer = new Mailer(\Yii::$app->mailer);
     }
 
     /**
@@ -56,6 +56,7 @@ class MailerTest extends \Codeception\Test\Unit
 
         $emailMessage = $this->tester->grabLastSentEmail();
 
+        \PHPUnit_Framework_Assert::assertInstanceOf(\yii\mail\MessageInterface::class, $emailMessage);
         \PHPUnit_Framework_Assert::assertArrayHasKey('test@helpermailer.com', $emailMessage->getTo());
         \PHPUnit_Framework_Assert::assertArrayHasKey('no-reply@helpermailer.com', $emailMessage->getFrom());
         \PHPUnit_Framework_Assert::assertEquals(

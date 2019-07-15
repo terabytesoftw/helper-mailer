@@ -3,7 +3,6 @@
 namespace terabytesoft\helpers;
 
 use yii\base\Component;
-use yii\db\ActiveRecord;
 
 /**
  * Class Mailer
@@ -12,15 +11,26 @@ use yii\db\ActiveRecord;
 class Mailer extends Component
 {
     /**
+     * @var object $mailer
+     */
+    private $mailer;
+
+
+    /**
+     * __construct
+     */
+    public function __construct(object $mailer)
+    {
+        $this->mailer = $mailer;
+        $this->mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
+    }
+
+    /**
      * sendMessage
-     **/
+     */
     public function sendMessage(string $to, string $subject, string $view, array $params = []): bool
     {
-        $mailer = \Yii::$app->mailer;
-
-        $mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
-
-        return $mailer->compose(['html' => $view, 'text' => 'text/' . $view], $params)
+        return $this->mailer->compose(['html' => $view, 'text' => 'text/' . $view], $params)
             ->setTo($to)
             ->setFrom(
                 [\Yii::$app->params['helper.mailer.sender'] => \Yii::$app->params['helper.mailer.sender.name']]
