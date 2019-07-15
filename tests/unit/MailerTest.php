@@ -48,8 +48,10 @@ class MailerTest extends \Codeception\Test\Unit
             'test mailer user codecept',
             'viewtest',
             [
-                'replyTo' => 'replyto@helpermailer.com',
-                'params' => 'test codecept params',
+                'replyTo' => 'replyto@helpermailer.com'
+            ],
+            [
+                'params' => 'test codecept params'
             ]
         );
 

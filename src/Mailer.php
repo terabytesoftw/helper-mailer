@@ -32,8 +32,13 @@ class Mailer extends Component
     /**
      * sendMessage
      */
-    public function sendMessage(string $to, string $subject, string $view, array $params = []): bool
-    {
+    public function sendMessage(
+        string $to,
+        string $subject,
+        string $view,
+        array $options = [],
+        array $params = []
+    ): bool {
         $this->emailConfig = $this->mailer
             ->compose(['html' => $view, 'text' => 'text/' . $view], $params)
             ->setTo($to)
@@ -42,9 +47,9 @@ class Mailer extends Component
             )
             ->setSubject($subject);
 
-        if (isset($params['replyTo'])) {
+        if (isset($options['replyTo'])) {
             $this->emailConfig = $this->emailConfig
-                ->setReplyTo($params['replyTo']);
+                ->setReplyTo($options['replyTo']);
         }
 
         return $this->mailer->send($this->emailConfig);
