@@ -1,4 +1,4 @@
-namespace: terabytesoft\mailer\user\tests
+namespace: terabytesoft\helpers\tests
 paths:
     tests: tests
     output: tests/_output
@@ -24,6 +24,3 @@ coverage:
     whitelist:
         include:
             - src/*
-        exclude:
-            - src/messages/*
-            - src/assets/css/*

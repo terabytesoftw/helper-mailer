@@ -10,17 +10,10 @@ $params = $params ?? [];
 
 $config = [
     'components' => [
-        'i18n' => [
-            'translations' => [
-                'mailer.user' => [
-                    'class' => \yii\i18n\PhpMessageSource::class,
-                ],
-            ],
-        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'enableSwiftMailerLogging' => $params['mailer.user.email.swiftmailer.logging'],
-            'useFileTransport' => $params['mailer.user.email.usefiletransport'],
+            'enableSwiftMailerLogging' => $params['helper.mailer.swiftmailer.logging'],
+            'useFileTransport' => $params['helper.mailer.usefiletransport'],
         ],
     ],
     'params' => $params,

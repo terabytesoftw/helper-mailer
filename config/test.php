@@ -14,7 +14,7 @@ $config = [
         '@npm'   => '@root/node_modules',
         '@public' => '@root/tests/public',
         '@runtime' => '@root/tests/public/@runtime',
-        '@terabytesoft/mailer/user' => '@root/src',
+        '@terabytesoft/helpers/tests/views' => '@root/tests/_data',
     ],
     'basePath' => '@root/src',
     'bootstrap' => ['log'],
@@ -24,25 +24,22 @@ $config = [
             'basePath' => '@public/assets',
             'forceCopy' => true,
         ],
-        'i18n' => [
-            'translations' => [
-                'mailer.user' => [
-                    'class' => yii\i18n\PhpMessageSource::class,
-                ],
-            ],
-        ],
         'log' => [
             'traceLevel' => 'YII_DEBUG' ? 3 : 0,
             'targets' => [
                 [
                     'class' => \yii\log\FileTarget::class,
+                    'categories' => [
+                        'yii\swiftmailer\Logger::add'
+                    ],
                     'levels' => ['error', 'warning', 'info'],
                     'logFile' => '@runtime/logs/app.log',
                 ],
             ],
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
+            'class' => \yii\swiftmailer\Mailer::class,
+            'enableSwiftMailerLogging' => true,
             'useFileTransport' => true,
         ],
         'request' => [
