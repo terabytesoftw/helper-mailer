@@ -1,30 +1,30 @@
 <p align="center">
-    <a href="https://github.com/terabytesoftw/mailer-user" target="_blank">
+    <a href="https://github.com/terabytesoftw/helper-mailer" target="_blank">
         <img src="https://lh3.googleusercontent.com/D9TFw1F6ddPuheDc_tpNptTdvTg-FNNpjLSBN14X6Sc-3JDiOxfE67rEh4OZfygonx1tKei2b2DEOHDLjF6T3xl8e-rkEEPZeGqLTWcS_v2cBRlyo0vcZLDHG5ivSDGIWCsenbol=w2400" height="50px;">
     </a>
     <h1 align="center">Component Mailer User Core.</h1>
 </p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/terabytesoftw/mailer-user" target="_blank">
-        <img src="https://poser.pugx.org/terabytesoftw/mailer-user/v/unstable.svg" alt="Unstable Version">
+    <a href="https://packagist.org/packages/terabytesoftw/helper-mailer" target="_blank">
+        <img src="https://poser.pugx.org/terabytesoftw/helper-mailer/v/unstable.svg" alt="Unstable Version">
     </a>
-    <a href="https://travis-ci.org/terabytesoftw/mailer-user" target="_blank">
-        <img src="https://travis-ci.org/terabytesoftw/mailer-user.svg?branch=master" alt="Build Status">
+    <a href="https://travis-ci.org/terabytesoftw/helper-mailer" target="_blank">
+        <img src="https://travis-ci.org/terabytesoftw/helper-mailer.svg?branch=master" alt="Build Status">
     </a>  
-    <a href="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/" target="_blank">
-        <img src="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/badges/build.png?b=master" alt="Build Status">
+    <a href="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/" target="_blank">
+        <img src="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/badges/build.png?b=master" alt="Build Status">
     </a>
-    <a href="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/" target="_blank">
-        <img src="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/badges/coverage.png?b=master" alt="Build Status">
+    <a href="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/" target="_blank">
+        <img src="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/badges/coverage.png?b=master" alt="Build Status">
     </a>    
-    <a href="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/?branch=master" target="_blank">
-     	<img src="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/badges/quality-score.png?b=master" alt="Code Quality">
+    <a href="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/?branch=master" target="_blank">
+     	<img src="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/badges/quality-score.png?b=master" alt="Code Quality">
     </a>
     <a href="https://scrutinizer-ci.com/code-intelligence" target="_blank">
-     	<img src="https://scrutinizer-ci.com/g/terabytesoftw/mailer-user/badges/code-intelligence.svg?b=master" alt="Code Intelligence Status">
+     	<img src="https://scrutinizer-ci.com/g/terabytesoftw/helper-mailer/badges/code-intelligence.svg?b=master" alt="Code Intelligence Status">
     </a>
-    <a href="https://codeclimate.com/github/terabytesoftw/mailer-user/maintainability" target="_blank">
+    <a href="https://codeclimate.com/github/terabytesoftw/helper-mailer/maintainability" target="_blank">
         <img src="https://api.codeclimate.com/v1/badges/9bbe65b6fda1abd74c2c/maintainability" alt="Maintainability">
     </a>		
 </p>
@@ -93,7 +93,7 @@ $ vendor/bin/codecept run --coverage-xml
 
 ### **LICENCE:**
 
-[![License](https://poser.pugx.org/terabytesoftw/mailer-user/license.svg)](LICENSE.md)
+[![License](https://poser.pugx.org/terabytesoftw/helper-mailer/license.svg)](LICENSE.md)
 [![YiiFramework](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](https://www.yiiframework.com/)
-[![Total Downloads](https://poser.pugx.org/terabytesoftw/mailer-user/downloads.svg)](https://packagist.org/packages/terabytesoftw/mailer-user)
+[![Total Downloads](https://poser.pugx.org/terabytesoftw/helper-mailer/downloads.svg)](https://packagist.org/packages/terabytesoftw/helper-mailer)
 [![StyleCI](https://github.styleci.io/repos/195688130/shield?branch=master)](https://github.styleci.io/repos/195688130)
