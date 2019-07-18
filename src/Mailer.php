@@ -26,7 +26,9 @@ class Mailer extends Component
     public function __construct(object $mailer)
     {
         $this->mailer = $mailer;
-        $this->mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
+        if (isset(\Yii::$app->params['helper.mailer.viewpath'])) {
+            $this->mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
+        }
     }
 
     /**
