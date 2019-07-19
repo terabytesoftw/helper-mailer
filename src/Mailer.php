@@ -3,6 +3,7 @@
 namespace terabytesoft\helpers;
 
 use yii\base\Component;
+use yii\mail\MailerInterface;
 
 /**
  * Class Mailer
@@ -13,23 +14,7 @@ class Mailer extends Component
     /**
      * @var \yii\mail\MessageInterface $emailConfig
      */
-    private $emailConfig;
-
-    /**
-     * @var object $mailer
-     */
-    private $mailer;
-
-    /**
-     * __construct
-     */
-    public function __construct(object $mailer)
-    {
-        $this->mailer = $mailer;
-        if (isset(\Yii::$app->params['helper.mailer.viewpath'])) {
-            $this->mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
-        }
-    }
+    protected $emailConfig;
 
     /**
      * sendMessage
@@ -37,12 +22,17 @@ class Mailer extends Component
     public function sendMessage(
         string $to,
         string $subject,
-        array $options = [],
-        array $params = []
+        array $options,
+        array $params,
+        MailerInterface $mailer
     ): bool {
+        if (isset(\Yii::$app->params['helper.mailer.viewpath'])) {
+            $mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
+        }
+
         $views = isset($options['views']) ? $options['views'] : [];
 
-        $this->emailConfig = $this->mailer
+        $this->emailConfig = $mailer
             ->compose($views, $params)
             ->setTo($to)
             ->setFrom(
@@ -65,6 +55,6 @@ class Mailer extends Component
                 ->setHtmlBody($options['textHtml']);
         }
 
-        return $this->mailer->send($this->emailConfig);
+        return $mailer->send($this->emailConfig);
     }
 }

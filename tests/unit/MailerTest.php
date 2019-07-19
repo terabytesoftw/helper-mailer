@@ -26,7 +26,7 @@ class MailerTest extends \Codeception\Test\Unit
      */
     public function _before(): void
     {
-        $this->mailer = new Mailer(\Yii::$app->mailer);
+        $this->mailer = new Mailer();
     }
 
     /**
@@ -49,7 +49,9 @@ class MailerTest extends \Codeception\Test\Unit
             [
                 'replyTo' => 'replyto@helpermailer.com',
                 'textBody' => 'Plain text content'
-            ]
+            ],
+            [],
+            \Yii::$app->mailer
         );
 
         $this->tester->seeEmailIsSent();
@@ -82,7 +84,9 @@ class MailerTest extends \Codeception\Test\Unit
                 'views' => 'viewtest',
                 'textBody' => 'Plain text content',
                 'textHtml' => '<b>Plain text content</b>',
-            ]
+            ],
+            [],
+            \Yii::$app->mailer
         );
 
         $this->tester->seeEmailIsSent();
@@ -115,7 +119,8 @@ class MailerTest extends \Codeception\Test\Unit
             ],
             [
                 'params' => 'Params text content'
-            ]
+            ],
+            \Yii::$app->mailer
         );
 
         $this->tester->seeEmailIsSent();
