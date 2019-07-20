@@ -49,9 +49,7 @@ class MailerTest extends \Codeception\Test\Unit
             [
                 'replyTo' => 'replyto@helpermailer.com',
                 'textBody' => 'Plain text content'
-            ],
-            [],
-            \Yii::$app->mailer
+            ]
         );
 
         $this->tester->seeEmailIsSent();
@@ -82,11 +80,9 @@ class MailerTest extends \Codeception\Test\Unit
             'test mailer user codecept',
             [
                 'views' => 'viewtest',
+                'htmlBody' => '<b>Plain text content</b>',
                 'textBody' => 'Plain text content',
-                'textHtml' => '<b>Plain text content</b>',
-            ],
-            [],
-            \Yii::$app->mailer
+            ]
         );
 
         $this->tester->seeEmailIsSent();
@@ -119,8 +115,7 @@ class MailerTest extends \Codeception\Test\Unit
             ],
             [
                 'params' => 'Params text content'
-            ],
-            \Yii::$app->mailer
+            ]
         );
 
         $this->tester->seeEmailIsSent();

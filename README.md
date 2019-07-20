@@ -86,19 +86,13 @@ use terabytesoft\helpers\Mailer;
 $mailer = new Mailer();
 
 $this->mailer->sendMessage(
-    // to->email
-    'test@helpermailer.com',
-    // subject->email
-    'test mailer user codecept',
+    'test@helpermailer.com', // to->email
+    'test mailer user codecept', // subject->email
     // options->email
     [
         'replyTo' => 'replyto@helpermailer.com', // replyTo->email
         'textBody' => 'Plain text content' // bodyContent->email
     ],
-    // params->email
-    [],
-    // MailerInterface   
-    \Yii::$app->mailer
 );
 
 // Email with views params:
@@ -110,20 +104,16 @@ use terabytesoft\helpers\Mailer;
 $mailer = new Mailer();
 
 $this->mailer->sendMessage(
-    // to->email
-    'test@helpermailer.com',
-    // subject->email    
-    'test mailer user codecept',
+    'test@helpermailer.com', // to->email    
+    'test mailer user codecept', // subject->email
     // options->email
     [
-        'views' => 'viewtest',
+        'views' => 'viewtest', // views->email
     ],
     // params->email
     [
-        'params' => 'Params text content'
+        'params' => 'Params text content', // params->email 
     ],
-    // MailerInterface    
-    \Yii::$app->mailer
 );
 ~~~
 
