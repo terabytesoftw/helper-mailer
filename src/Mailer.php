@@ -111,7 +111,8 @@ class Mailer extends Component
      */
     public function setViewPath(): void
     {
-        $this->mailer->viewPath = isset(\Yii::$app->params['helper.mailer.viewpath'])
-            ? \Yii::$app->params['helper.mailer.viewpath'] : [];
+        if (isset(\Yii::$app->params['helper.mailer.viewpath'])) {
+            $this->mailer->viewPath = \Yii::$app->params['helper.mailer.viewpath'];
+        }
     }
 }
